@@ -95,13 +95,14 @@ function HomePage() {
           <span className="text-2xl">✨</span>
           <span className="font-display text-xl font-bold tracking-tight">ScratchIt</span>
         </Link>
-        <a
-          href="#create"
-          className="rounded-full bg-foreground px-4 py-2 text-xs font-semibold text-background transition hover:opacity-90"
-        >
-          Make a card
-        </a>
-        <ThemeToggle />
+        <div className="flex items-center gap-2">
+          <a
+            href="#create"
+            className="rounded-full bg-foreground px-4 py-2 text-xs font-semibold text-background transition hover:opacity-90"
+          >
+            Make a card
+          </a>
+          <ThemeToggle />
         </div>
       </header>
 
