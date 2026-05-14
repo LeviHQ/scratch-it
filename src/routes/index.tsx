@@ -4,6 +4,7 @@ import { TEMPLATES, Template } from "@/lib/templates";
 import { compressImage, encodePayload, CardPayload } from "@/lib/card-payload";
 import { CardContent } from "@/components/CardContent";
 import { ScratchCard } from "@/components/ScratchCard";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -100,6 +101,8 @@ function HomePage() {
         >
           Make a card
         </a>
+        <ThemeToggle />
+        </div>
       </header>
 
       {/* Hero */}
