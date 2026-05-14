@@ -4,6 +4,7 @@ import { decodePayload, CardPayload } from "@/lib/card-payload";
 import { getTemplate } from "@/lib/templates";
 import { ScratchCard } from "@/components/ScratchCard";
 import { CardContent } from "@/components/CardContent";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const Route = createFileRoute("/reveal")({
   component: RevealPage,
@@ -72,6 +73,7 @@ function RevealPage() {
           <span className="text-2xl">✨</span>
           <span className="font-display text-xl font-bold tracking-tight">ScratchIt</span>
         </Link>
+        <ThemeToggle />
       </header>
 
       <main className="flex flex-1 flex-col items-center justify-center px-5 py-10">
