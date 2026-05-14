@@ -84,9 +84,9 @@
 }
 
 @layer utilities {
-  .bg-gradient-warm { background: var(--gradient-warm); }
-  .bg-gradient-gold { background: var(--gradient-gold); }
-  .bg-gradient-confetti { background: var(--gradient-confetti); }
+  .bg-gradient-warm { background-image: var(--gradient-warm); }
+  .bg-gradient-gold { background-image: var(--gradient-gold); }
+  .bg-gradient-confetti { background-image: var(--gradient-confetti); }
   .shadow-soft { box-shadow: var(--shadow-soft); }
   .shadow-card { box-shadow: var(--shadow-card); }
 }
