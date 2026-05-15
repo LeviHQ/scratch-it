@@ -143,9 +143,7 @@ export function ScratchCard({
       className="relative overflow-hidden rounded-3xl shadow-card bg-card"
       style={{ width, height, touchAction: "none" }}
     >
-      <div className="absolute inset-0 flex items-center justify-center">
-        {children}
-      </div>
+      <div className="absolute inset-0 flex items-center justify-center">{children}</div>
       {!revealed && (
         <canvas
           ref={canvasRef}
@@ -165,7 +163,15 @@ export function ScratchCard({
 // quick shade helper for hex colors
 function shade(hex: string, percent: number) {
   const m = hex.replace("#", "");
-  const num = parseInt(m.length === 3 ? m.split("").map((c) => c + c).join("") : m, 16);
+  const num = parseInt(
+    m.length === 3
+      ? m
+          .split("")
+          .map((c) => c + c)
+          .join("")
+      : m,
+    16,
+  );
   let r = (num >> 16) + percent;
   let g = ((num >> 8) & 0xff) + percent;
   let b = (num & 0xff) + percent;

@@ -72,7 +72,7 @@ function HomePage() {
   };
 
   const canCreate =
-    (mode === "template") ||
+    mode === "template" ||
     (mode === "upload" && !!imgData) ||
     (mode === "text" && message.trim().length > 0);
 
@@ -84,7 +84,7 @@ function HomePage() {
 
   const previewKey = useMemo(
     () => `${mode}-${template.id}-${imgData?.slice(0, 32)}-${message}-${from}`,
-    [mode, template, imgData, message, from]
+    [mode, template, imgData, message, from],
   );
 
   return (
@@ -115,10 +115,13 @@ function HomePage() {
         <h1 className="mt-5 font-display text-5xl font-bold leading-[1.05] sm:text-6xl">
           Hide a little surprise.
           <br />
-          <span className="bg-gradient-warm bg-clip-text text-transparent">Make them scratch for it.</span>
+          <span className="bg-gradient-warm bg-clip-text text-transparent">
+            Make them scratch for it.
+          </span>
         </h1>
         <p className="mx-auto mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
-          Turn a photo or message into a scratch-to-reveal card. Share the link on WhatsApp, Instagram or anywhere — they'll love it.
+          Turn a photo or message into a scratch-to-reveal card. Share the link on WhatsApp,
+          Instagram or anywhere — they'll love it.
         </p>
       </section>
 
@@ -213,12 +216,16 @@ function HomePage() {
                 value={message}
                 onChange={(e) => setMessage(e.target.value.slice(0, 220))}
                 placeholder={
-                  mode === "template" ? template.message : "Type something sweet, funny, or surprising..."
+                  mode === "template"
+                    ? template.message
+                    : "Type something sweet, funny, or surprising..."
                 }
                 rows={3}
                 className="mt-3 w-full resize-none rounded-2xl border border-input bg-background px-4 py-3 text-base outline-none transition focus:border-foreground"
               />
-              <div className="mt-1 text-right text-xs text-muted-foreground">{message.length}/220</div>
+              <div className="mt-1 text-right text-xs text-muted-foreground">
+                {message.length}/220
+              </div>
 
               <input
                 value={from}
@@ -253,7 +260,7 @@ function HomePage() {
                 width={previewW}
                 height={previewH}
                 template={mode === "template" ? template : undefined}
-                imageUrl={mode === "upload" ? imgData ?? undefined : undefined}
+                imageUrl={mode === "upload" ? (imgData ?? undefined) : undefined}
                 message={message || (mode === "template" ? template.message : undefined)}
                 from={from || undefined}
               />
@@ -319,9 +326,21 @@ function HomePage() {
         <h2 className="font-display text-3xl font-bold">How it works</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
           {[
-            { n: "01", t: "Pick what to hide", d: "A photo, message, or one of our occasion templates." },
-            { n: "02", t: "Get a magic link", d: "We bake your card into a link — no account, no upload server." },
-            { n: "03", t: "They scratch & smile", d: "Tap, drag, reveal. Works on any phone or desktop." },
+            {
+              n: "01",
+              t: "Pick what to hide",
+              d: "A photo, message, or one of our occasion templates.",
+            },
+            {
+              n: "02",
+              t: "Get a magic link",
+              d: "We bake your card into a link — no account, no upload server.",
+            },
+            {
+              n: "03",
+              t: "They scratch & smile",
+              d: "Tap, drag, reveal. Works on any phone or desktop.",
+            },
           ].map((s) => (
             <div key={s.n} className="rounded-2xl border border-border bg-card p-5">
               <div className="font-display text-3xl font-bold text-coral">{s.n}</div>
