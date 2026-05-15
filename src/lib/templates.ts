@@ -65,5 +65,4 @@ export const TEMPLATES: Template[] = [
   },
 ];
 
-export const getTemplate = (id?: string | null) =>
-  TEMPLATES.find((t) => t.id === id);
+export const getTemplate = (id?: string | null) => TEMPLATES.find((t) => t.id === id);

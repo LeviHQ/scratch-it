@@ -11,7 +11,10 @@ export const Route = createFileRoute("/reveal")({
   head: () => ({
     meta: [
       { title: "A surprise is waiting for you ✨ — ScratchIt" },
-      { name: "description", content: "Someone made you a scratch card. Tap to reveal what's hidden." },
+      {
+        name: "description",
+        content: "Someone made you a scratch card. Tap to reveal what's hidden.",
+      },
       { property: "og:title", content: "A surprise is waiting for you ✨" },
       { property: "og:description", content: "Tap to scratch and reveal what's hidden inside." },
     ],
@@ -38,11 +41,15 @@ function RevealPage() {
 
   const template = useMemo(
     () => (payload?.kind === "template" ? getTemplate(payload.tpl) : undefined),
-    [payload]
+    [payload],
   );
 
   if (payload === undefined) {
-    return <div className="flex min-h-screen items-center justify-center text-muted-foreground">Loading…</div>;
+    return (
+      <div className="flex min-h-screen items-center justify-center text-muted-foreground">
+        Loading…
+      </div>
+    );
   }
 
   if (payload === null) {
@@ -53,15 +60,17 @@ function RevealPage() {
         <p className="mt-2 max-w-md text-muted-foreground">
           Ask the sender to share the link again — or make your own scratch card.
         </p>
-        <Link to="/" className="mt-6 rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background">
+        <Link
+          to="/"
+          className="mt-6 rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background"
+        >
           Make a card
         </Link>
       </div>
     );
   }
 
-  const message =
-    payload.msg || (template ? template.message : "You got a surprise! 🎉");
+  const message = payload.msg || (template ? template.message : "You got a surprise! 🎉");
   const imageUrl = payload.kind === "image" ? payload.img : undefined;
   const scratchColor = template?.scratchColor ?? "#c14a2a";
   const scratchLabel = template?.scratchLabel ?? "Scratch to reveal ✨";

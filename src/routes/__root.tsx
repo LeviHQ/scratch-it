@@ -7,6 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
 
@@ -73,16 +74,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "ScratchIt — Free Digital Scratch Cards" },
-      { name: "description", content: "Create fun scratch-to-reveal cards with photos or messages. Send a magical surprise on WhatsApp, Instagram, or anywhere — no signup needed." },
+      {
+        name: "description",
+        content:
+          "Create fun scratch-to-reveal cards with photos or messages. Send a magical surprise on WhatsApp, Instagram, or anywhere — no signup needed.",
+      },
       { name: "author", content: "ScratchIt" },
       { property: "og:title", content: "ScratchIt — Free Digital Scratch Cards" },
-      { property: "og:description", content: "Create fun scratch-to-reveal cards with photos or messages. Send a magical surprise on WhatsApp, Instagram, or anywhere — no signup needed." },
+      {
+        property: "og:description",
+        content:
+          "Create fun scratch-to-reveal cards with photos or messages. Send a magical surprise on WhatsApp, Instagram, or anywhere — no signup needed.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "ScratchIt — Free Digital Scratch Cards" },
-      { name: "twitter:description", content: "Create fun scratch-to-reveal cards with photos or messages. Send a magical surprise on WhatsApp, Instagram, or anywhere — no signup needed." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/72747756-923f-4dea-b51a-9001f81587f0/id-preview-f081e56e--76690117-9ac7-4a2b-a2ab-4030ef5f97f0.lovable.app-1778730182596.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/72747756-923f-4dea-b51a-9001f81587f0/id-preview-f081e56e--76690117-9ac7-4a2b-a2ab-4030ef5f97f0.lovable.app-1778730182596.png" },
+      {
+        name: "twitter:description",
+        content:
+          "Create fun scratch-to-reveal cards with photos or messages. Send a magical surprise on WhatsApp, Instagram, or anywhere — no signup needed.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/72747756-923f-4dea-b51a-9001f81587f0/id-preview-f081e56e--76690117-9ac7-4a2b-a2ab-4030ef5f97f0.lovable.app-1778730182596.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/72747756-923f-4dea-b51a-9001f81587f0/id-preview-f081e56e--76690117-9ac7-4a2b-a2ab-4030ef5f97f0.lovable.app-1778730182596.png",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -93,7 +114,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=DM+Sans:wght@400;500;600;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=DM+Sans:wght@400;500;600;700&display=swap",
+      },
     ],
     scripts: [
       {
@@ -117,6 +141,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
       <body>
         {children}
         <Scripts />
+        <Analytics />
       </body>
     </html>
   );

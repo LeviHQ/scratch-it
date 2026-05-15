@@ -28,8 +28,7 @@ const fromB64 = (s: string) => {
   return decodeURIComponent(escape(atob(b)));
 };
 
-export const encodePayload = (p: CardPayload): string =>
-  toB64(JSON.stringify(p));
+export const encodePayload = (p: CardPayload): string => toB64(JSON.stringify(p));
 
 export const decodePayload = (s: string): CardPayload | null => {
   try {
@@ -42,11 +41,7 @@ export const decodePayload = (s: string): CardPayload | null => {
 };
 
 // Compress an uploaded image to keep URL hash size manageable.
-export const compressImage = async (
-  file: File,
-  maxDim = 1000,
-  quality = 0.72
-): Promise<string> => {
+export const compressImage = async (file: File, maxDim = 1000, quality = 0.72): Promise<string> => {
   const dataUrl = await new Promise<string>((resolve, reject) => {
     const r = new FileReader();
     r.onload = () => resolve(r.result as string);
