@@ -24,6 +24,7 @@ export const Route = createFileRoute("/reveal")({
 function RevealPage() {
   const [payload, setPayload] = useState<CardPayload | null | undefined>(undefined);
   const [revealed, setRevealed] = useState(false);
+  const [progress, setProgress] = useState(0);
   const [size, setSize] = useState({ w: 340, h: 460 });
 
   useEffect(() => {
@@ -99,6 +100,7 @@ function RevealPage() {
           scratchColor={scratchColor}
           scratchLabel={scratchLabel}
           onRevealed={() => setRevealed(true)}
+          onProgress={setProgress}
         >
           <CardContent
             width={size.w}
@@ -109,6 +111,23 @@ function RevealPage() {
             from={payload.from}
           />
         </ScratchCard>
+
+        {progress > 0 && progress < 1 && (
+          <div className="mt-4 flex w-full max-w-[340px] flex-col items-center gap-2 px-5">
+            <div className="flex w-full items-center gap-3">
+              <div className="h-3 flex-1 overflow-hidden rounded-full bg-muted">
+                <div
+                  className="h-full rounded-full bg-gradient-warm transition-all duration-200"
+                  style={{ width: `${Math.min(progress * 100, 100)}%` }}
+                />
+              </div>
+              <span className="text-base font-bold text-foreground">
+                {Math.round(Math.min(progress * 100, 100))}%
+              </span>
+            </div>
+            <span className="text-sm font-medium text-muted-foreground">Keep scratching to reveal...</span>
+          </div>
+        )}
 
         <p className="mt-5 text-center text-sm text-muted-foreground">
           {revealed ? "Hope it made you smile ✨" : "Use your finger or mouse to scratch"}
