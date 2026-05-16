@@ -128,7 +128,7 @@ export function ScratchCard({
     drawingRef.current = false;
     lastRef.current = null;
     const p = measure();
-    setProgress(p);
+    onProgress?.(p);
     if (p >= threshold && !revealed) {
       setRevealed(true);
       // animate the rest away
