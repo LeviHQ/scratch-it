@@ -256,6 +256,7 @@ function HomePage() {
               height={previewH}
               scratchColor={mode === "template" ? template.scratchColor : "#c14a2a"}
               scratchLabel={mode === "template" ? template.scratchLabel : "Scratch to reveal ✨"}
+              onProgress={setPreviewProgress}
             >
               <CardContent
                 width={previewW}
@@ -266,6 +267,22 @@ function HomePage() {
                 from={from || undefined}
               />
             </ScratchCard>
+            {previewProgress > 0 && previewProgress < 1 && (
+              <div className="mt-3 flex w-full max-w-[320px] flex-col items-center gap-1.5">
+                <div className="flex w-full items-center gap-2">
+                  <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-muted">
+                    <div
+                      className="h-full rounded-full bg-gradient-warm transition-all duration-200"
+                      style={{ width: `${Math.min(previewProgress * 100, 100)}%` }}
+                    />
+                  </div>
+                  <span className="text-sm font-bold text-foreground">
+                    {Math.round(Math.min(previewProgress * 100, 100))}%
+                  </span>
+                </div>
+                <span className="text-xs text-muted-foreground">Keep scratching...</span>
+              </div>
+            )}
             <p className="mt-3 text-xs text-muted-foreground">Try scratching it ↑</p>
           </div>
         </div>
