@@ -24,6 +24,7 @@ export const Route = createFileRoute("/reveal")({
 function RevealPage() {
   const [payload, setPayload] = useState<CardPayload | null | undefined>(undefined);
   const [revealed, setRevealed] = useState(false);
+  const [progress, setProgress] = useState(0);
   const [size, setSize] = useState({ w: 340, h: 460 });
 
   useEffect(() => {
