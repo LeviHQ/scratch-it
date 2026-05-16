@@ -146,21 +146,6 @@ export function ScratchCard({
     >
       <div className="absolute inset-0 flex items-center justify-center">{children}</div>
 
-      {/* Scratch progress indicator */}
-      {!revealed && progress > 0 && (
-        <div className="pointer-events-none absolute bottom-4 left-0 right-0 flex justify-center">
-          <div className="flex items-center gap-2 rounded-full bg-black/60 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm">
-            <div className="h-1.5 w-16 overflow-hidden rounded-full bg-white/20">
-              <div
-                className="h-full rounded-full bg-white transition-all duration-200"
-                style={{ width: `${Math.min(progress * 100, 100)}%` }}
-              />
-            </div>
-            <span>{Math.round(Math.min(progress * 100, 100))}%</span>
-          </div>
-        </div>
-      )}
-
       {!revealed && (
         <canvas
           ref={canvasRef}
