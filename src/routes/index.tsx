@@ -31,6 +31,7 @@ function HomePage() {
   const [imgError, setImgError] = useState<string | null>(null);
   const [link, setLink] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+  const [previewProgress, setPreviewProgress] = useState(0);
   const fileRef = useRef<HTMLInputElement | null>(null);
 
   const onFile = async (f: File | null) => {
