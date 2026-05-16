@@ -6,6 +6,7 @@ type Props = {
   scratchColor: string;
   scratchLabel?: string;
   onRevealed?: () => void;
+  onProgress?: (progress: number) => void;
   threshold?: number; // 0..1 fraction needed before auto-clear
   children: React.ReactNode; // the hidden content
 };
