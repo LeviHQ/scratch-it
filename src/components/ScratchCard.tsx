@@ -25,7 +25,6 @@ export function ScratchCard({
   const drawingRef = useRef(false);
   const lastRef = useRef<{ x: number; y: number } | null>(null);
   const [revealed, setRevealed] = useState(false);
-  const [progress, setProgress] = useState(0);
 
   const drawScratchLayer = useCallback(() => {
     const canvas = canvasRef.current;
