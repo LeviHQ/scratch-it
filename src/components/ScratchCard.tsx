@@ -17,6 +17,7 @@ export function ScratchCard({
   scratchColor,
   scratchLabel = "Scratch here ✨",
   onRevealed,
+  onProgress,
   threshold = 0.55,
   children,
 }: Props) {
